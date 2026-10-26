@@ -1,0 +1,42 @@
+{
+  "mode": "built-in image_gen",
+  "purpose": "Fictional adult mentor portraits for prototype, not identity verification",
+  "portraits": [
+    {
+      "id": "b1",
+      "name": "서윤",
+      "file": "b1-portrait.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: fictional adult mentor profile photo for a Korean human-story library prototype. One person only, completely invented appearance, no recognizable real person. Square editorial portrait, chest-up, camera at eye level, looking toward camera, full head and shoulders visible with generous space around hair and sides, face centered and clearly readable at small sizes. Natural everyday appearance, believable skin texture and facial proportions, no glamour retouching. Soft diffused daylight. Quiet softly blurred warm beige library interior, muted green accents, no readable books or identifying location. Clean, warm, approachable documentary photography, 50mm lens feel. No text, watermark, logo, ID card, verified symbol, uniform or certification. Subject: a fictional Korean woman aged 24, visual design university student, chin-length straight dark bob, sage-green knit sweater, friendly small smile"
+    },
+    {
+      "id": "b2",
+      "name": "도현",
+      "file": "b2-portrait.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: fictional adult mentor profile photo for a Korean human-story library prototype. One person only, completely invented appearance, no recognizable real person. Square editorial portrait, chest-up, camera at eye level, looking toward camera, full head and shoulders visible with generous space around hair and sides, face centered and clearly readable at small sizes. Natural everyday appearance, believable skin texture and facial proportions, no glamour retouching. Soft diffused daylight. Quiet softly blurred warm beige library interior, muted green accents, no readable books or identifying location. Clean, warm, approachable documentary photography, 50mm lens feel. No text, watermark, logo, ID card, verified symbol, uniform or certification. Subject: a fictional Korean man aged 23, university student exploring his major, loosely parted dark hair, thin oval glasses, navy cardigan over white T-shirt, relaxed thoughtful smile"
+    },
+    {
+      "id": "b3",
+      "name": "지안",
+      "file": "b3-portrait.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: fictional adult mentor profile photo for a Korean human-story library prototype. One person only, completely invented appearance, no recognizable real person. Square editorial portrait, chest-up, camera at eye level, looking toward camera, full head and shoulders visible with generous space around hair and sides, face centered and clearly readable at small sizes. Natural everyday appearance, believable skin texture and facial proportions, no glamour retouching. Soft diffused daylight. Quiet softly blurred warm beige library interior, muted green accents, no readable books or identifying location. Clean, warm, approachable documentary photography, 50mm lens feel. No text, watermark, logo, ID card, verified symbol, uniform or certification. Subject: a fictional Korean woman aged 31, community-minded software developer, dark hair tied in a low ponytail, light blue casual chambray shirt, calm approachable smile"
+    },
+    {
+      "id": "b4",
+      "name": "하람",
+      "file": "b4-portrait.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: fictional adult mentor profile photo for a Korean human-story library prototype. One person only, completely invented appearance, no recognizable real person. Square editorial portrait, chest-up, camera at eye level, looking toward camera, full head and shoulders visible with generous space around hair and sides, face centered and clearly readable at small sizes. Natural everyday appearance, believable skin texture and facial proportions, no glamour retouching. Soft diffused daylight. Quiet softly blurred warm beige library interior, muted green accents, no readable books or identifying location. Clean, warm, approachable documentary photography, 50mm lens feel. No text, watermark, logo, ID card, verified symbol, uniform or certification. Subject: a fictional Korean man aged 22, university student sharing study routines, neat short black hair, oatmeal crew-neck sweatshirt, easy sincere smile"
+    },
+    {
+      "id": "b5",
+      "name": "민재",
+      "file": "b5-portrait.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: fictional adult mentor profile photo for a Korean human-story library prototype. One person only, completely invented appearance, no recognizable real person. Square editorial portrait, chest-up, camera at eye level, looking toward camera, full head and shoulders visible with generous space around hair and sides, face centered and clearly readable at small sizes. Natural everyday appearance, believable skin texture and facial proportions, no glamour retouching. Soft diffused daylight. Quiet softly blurred warm beige library interior, muted green accents, no readable books or identifying location. Clean, warm, approachable documentary photography, 50mm lens feel. No text, watermark, logo, ID card, verified symbol, uniform or certification. Subject: a fictional Korean man aged 32, local community event planner, short slightly wavy dark hair, olive casual overshirt, warm open smile"
+    },
+    {
+      "id": "b6",
+      "name": "수빈",
+      "file": "b6-portrait.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: fictional adult mentor profile photo for a Korean human-story library prototype. One person only, completely invented appearance, no recognizable real person. Square editorial portrait, chest-up, camera at eye level, looking toward camera, full head and shoulders visible with generous space around hair and sides, face centered and clearly readable at small sizes. Natural everyday appearance, believable skin texture and facial proportions, no glamour retouching. Soft diffused daylight. Quiet softly blurred warm beige library interior, muted green accents, no readable books or identifying location. Clean, warm, approachable documentary photography, 50mm lens feel. No text, watermark, logo, ID card, verified symbol, uniform or certification. Subject: a fictional Korean woman aged 23, university student interested in science and music, shoulder-length gently wavy dark hair, small round glasses, cream knit cardigan, curious friendly expression"
+    }
+  ]
+}
