@@ -1,0 +1,54 @@
+/* Circulation, curated shelves and the librarian desk share the library palette. */
+.sidebar{overflow-y:auto}
+.featured-section{margin:12px 0 30px}
+.featured-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;font-size:12px;color:#677660}
+.featured-top>span{font-weight:600}.featured-top button{display:inline-flex;align-items:center;gap:6px;font-size:10px}.featured-top .icon{width:13px;height:13px}
+.featured-shelves{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.featured-shelf{min-width:0;border:1px solid #d6d7c6;border-radius:10px;overflow:hidden;background:#eeefe5;box-shadow:0 5px 15px #34462c05}
+.featured-shelf.chosen{background:#f1eade;border-color:#ddd1bc}
+.featured-shelf header{display:flex;align-items:center;justify-content:space-between;padding:20px 22px 0}
+.featured-shelf .eyebrow{font-size:8px;letter-spacing:1.7px;color:#7c886b}
+.featured-shelf h2{font:600 24px/1.5 var(--serif);margin:4px 0}
+.featured-shelf h2 small{font:9px/1.5 var(--sans);display:inline-block;margin-left:10px;color:#707a66;border:1px solid #cbd0be;border-radius:4px;padding:2px 5px;vertical-align:middle}
+.featured-shelf header p{font-size:11px;color:#73816c;margin:2px 0 0}
+.feature-emblem{border:1px solid #c7ceb8;border-radius:50%;height:40px;width:40px;display:grid;place-items:center;color:#809073;flex-shrink:0;margin-left:10px}
+.feature-emblem .icon{height:21px;width:21px}.chosen .feature-emblem{color:#ad8b4c;border-color:#d8c6a3}
+.featured-books{display:flex;gap:20px;align-items:end;padding:21px 24px 13px;min-height:216px;background:linear-gradient(0deg,#c9c9b43b,transparent 40px)}
+.featured-book{display:grid;grid-template-columns:80px minmax(0,1fr);gap:9px;text-align:left;align-items:end;flex:1;min-width:0}
+.featured-cover{display:flex;flex-direction:column;justify-content:space-between;height:135px;padding:16px 11px 10px;border-radius:2px 4px 4px 2px;box-shadow:3px 3px 4px #29382e22,inset 5px 0 3px #ffffff18;border-left:4px solid #0001}
+.featured-cover>span{font:600 12px/1.6 var(--serif);word-break:keep-all;overflow-wrap:anywhere}
+.featured-cover>small{font-size:8px;opacity:.85;padding-top:8px;border-top:1px solid #ffffff30}
+.featured-caption{font-size:11px;line-height:1.6;padding-bottom:5px;word-break:keep-all}.featured-caption small{font-size:9px;display:block;color:#73816c;margin-top:4px}
+.featured-book .rental-badge{grid-column:1/-1;font-size:8px;margin:2px 0 0;padding:5px 7px}
+.featured-book:focus-visible{outline:2px solid var(--green);outline-offset:4px}.featured-book:hover .featured-cover{transform:translateY(-3px)}
+.featured-ledge{height:12px;background:linear-gradient(#e5d4b4,#c8ad86 60%,#d6be99);box-shadow:inset 0 1px #fff8}
+.featured-empty{font-size:12px;color:var(--muted)}
+.rental-badge{display:flex;flex-wrap:wrap;gap:4px 8px;background:#f4e6d5;color:#87582e;border:1px solid #e6ceb1;border-radius:5px;font-size:10px;padding:7px 10px;margin:0 0 10px;line-height:1.5}
+.rental-badge small{font-size:9px}.rental-flag{position:absolute;top:-28px;left:0;right:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#8b613c;color:#fff6e7;box-shadow:0 2px 5px #543b2924;border-radius:4px;padding:4px 2px;font-size:8px;line-height:1.5;pointer-events:none}
+.rental-flag strong{font-size:10px}.rental-flag small{font-size:7px}.shelf-scroll:has(.has-rental){padding-top:47px}.has-rental .shelf-bookmark{top:16px;left:auto;right:4px;transform:none;z-index:5}
+.rental-panel{border:1px solid #e0ceb5;background:#faf3e8;border-radius:9px;padding:16px 18px;margin:18px 0 24px;color:#795735}
+.rental-panel>div{display:flex;gap:8px;align-items:center;font-size:13px;margin-bottom:9px}.rental-panel .icon{height:18px;width:18px}
+.rental-panel p{display:flex;gap:13px;flex-wrap:wrap;font-size:12px;margin:6px 0;color:inherit}.rental-panel small{font-size:10px;line-height:1.8;display:block;margin-top:10px;color:#8d765d}
+.meeting-rental{display:flex;align-items:center;gap:7px;font-size:12px;color:#8b613c;margin-top:12px}.meeting-rental .icon{width:16px;height:16px}.slot-busy{opacity:.55;background:#eae9e2;cursor:not-allowed}
+.help-grid{display:grid;grid-template-columns:minmax(250px,.85fr) minmax(320px,1.4fr);gap:24px;align-items:start}
+.librarian-card{padding:30px;border-radius:13px;background:#e9eddf;border:1px solid #d4ddc7;text-align:center;position:relative;overflow:hidden}
+.librarian-seal{width:62px;height:62px;border-radius:50%;background:#214f43;color:#e5ecd7;display:grid;place-items:center;margin:0 auto 19px;outline:1px solid #b4c5a8;outline-offset:5px}.librarian-seal .icon{width:29px;height:29px}
+.librarian-card .eyebrow{font-size:8px;letter-spacing:1.8px;color:#6f8565}.librarian-card h2{font:600 24px/1.6 var(--serif);margin:8px 0 10px}.librarian-card>p{font-size:12px;color:#6d7c64;line-height:1.8}
+.librarian-phone{padding:21px 0 17px;border-top:1px solid #cbd5bd;margin-top:23px}.librarian-phone span{display:block;font-size:10px;color:#76846b;margin-bottom:7px}.librarian-phone strong{font:500 25px/1.6 Georgia,serif;letter-spacing:.5px;white-space:nowrap}
+.librarian-card dl{margin:0;text-align:left;border-top:1px solid #cbd5bd;padding:13px 0}.librarian-card dl>div{display:flex;justify-content:space-between;font-size:11px;line-height:2.2;gap:16px}.librarian-card dt{color:#72816a}.librarian-card dd{margin:0}
+.librarian-card .contact-note{font-size:10px;margin:0 0 18px}.librarian-safety{text-align:left;border-top:1px dashed #b8c6aa;padding-top:18px;font-size:12px}.librarian-safety p{font-size:11px;line-height:1.8;margin-bottom:0;color:#6d7c64}
+.consultation-panel h2{font:600 23px/1.5 var(--serif);margin:6px 0 8px}.consultation-panel>.eyebrow{font-size:9px}.consultation-panel>p{font-size:12px;margin-bottom:23px}.consultation-panel textarea{min-height:150px}
+.consultation-history{margin-top:32px}.consultation-history .library-toolbar span{font-size:12px;color:#80916e;margin-left:4px}.consultation-history .library-toolbar small{font-size:10px;color:var(--muted)}
+.consultation-row{width:100%;display:flex;gap:17px;align-items:center;text-align:left;border-bottom:1px solid var(--line);padding:18px 4px;min-width:0}.consultation-symbol{height:40px;width:40px;background:var(--sage);border-radius:8px;display:grid;place-items:center;flex-shrink:0}.consultation-symbol .icon{width:19px;height:19px}.consultation-row>span:nth-child(2){flex:1;min-width:0}.consultation-row strong{font-size:13px}.consultation-preview{display:block;font-size:12px;color:#61735d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:5px 0}.consultation-row small{font-size:10px;color:#8b9681}.consultation-row>.icon{width:17px;flex-shrink:0}.consultation-empty{font-size:12px;color:var(--muted);text-align:center;padding:35px 20px;border-bottom:1px solid var(--line);line-height:1.9}
+.consultation-messages{display:flex;flex-direction:column;gap:16px;margin:22px 0 26px}.consultation-message{margin-left:28px;background:#e9efdf;border:1px solid #d5dfc7;border-radius:12px 12px 2px 12px;padding:16px 18px;align-self:stretch}.consultation-message small{font-size:10px;color:#788e6d}.consultation-message p{font-size:13px;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere;margin:7px 0 0}.consultation-system{background:#f3f1e9;border-radius:10px;padding:16px 18px;margin-right:25px}.consultation-system strong{font-size:11px;display:flex;align-items:center;gap:6px;color:#79846b}.consultation-system .icon{height:15px;width:15px}.consultation-system p{font-size:11px;color:#818876;line-height:1.9;margin:7px 0 0}
+@media(max-width:1250px){.featured-book{grid-template-columns:74px minmax(0,1fr)}.featured-books{gap:12px;padding-left:18px;padding-right:18px}.featured-cover{padding-left:8px;padding-right:8px}.featured-caption{font-size:10px}.featured-caption small{font-size:8px}}
+@media(max-width:1050px){.featured-book{grid-template-columns:1fr;max-width:95px}.featured-caption{display:none}.featured-books{min-height:180px;justify-content:space-around}.featured-shelf header{padding-left:18px;padding-right:18px}.help-grid{gap:17px;grid-template-columns:1fr 1.2fr}.librarian-card{padding:25px 20px}}
+.mobile-app .bottom-nav a{min-width:0;flex:1;padding-left:2px;padding-right:2px;font-size:9px}
+.mobile-app .help-grid{grid-template-columns:1fr;gap:18px}.mobile-app .librarian-card{padding:25px 23px}.mobile-app .librarian-card dl{max-width:300px;margin:auto}.mobile-app .librarian-safety{margin-top:6px}.mobile-app .librarian-phone{padding:13px 0 10px;margin-top:16px}.mobile-app .librarian-phone strong{font-size:27px}
+.mobile-app .featured-section{margin-top:10px;margin-bottom:23px}.mobile-app .featured-top{font-size:11px;padding:0 3px}.mobile-app .featured-top button{font-size:9px}
+.mobile-app .featured-shelves{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-right:-16px;padding:0 16px 7px 0;scrollbar-width:thin;scrollbar-color:#c7cbb9 transparent}
+.mobile-app .featured-shelf{flex:0 0 90%;scroll-snap-align:start}.mobile-app .featured-shelf header{padding:17px 18px 0}.mobile-app .featured-shelf h2{font-size:22px}.mobile-app .featured-shelf header p{font-size:10px}.mobile-app .feature-emblem{width:34px;height:34px}.mobile-app .featured-books{padding:19px 20px 13px;gap:17px;min-height:178px;justify-content:space-around}.mobile-app .featured-book{grid-template-columns:72px minmax(0,1fr);max-width:none}.mobile-app .featured-caption{display:block;font-size:10px}.mobile-app .featured-cover{height:127px}.mobile-app .featured-cover>span{font-size:11px}.mobile-app .featured-book .rental-badge{font-size:8px;gap:2px}
+.mobile-app .rental-panel{padding:13px 14px}.mobile-app .rental-panel p{font-size:11px;gap:6px}.mobile-app .rental-panel small{font-size:10px}.mobile-app .meeting-rental{font-size:11px;line-height:1.8;align-items:flex-start}.mobile-app .meeting-rental .icon{flex-shrink:0;margin-top:3px}
+.mobile-app .consultation-row{gap:11px}.mobile-app .consultation-row small{font-size:9px}.mobile-app .consultation-message{margin-left:15px;padding:14px}.mobile-app .consultation-system{margin-right:15px;padding:14px}
+@media(max-width:360px){.mobile-app .featured-book{grid-template-columns:1fr;max-width:80px}.mobile-app .featured-caption{display:none}.mobile-app .featured-books{gap:22px;justify-content:center}.mobile-app .featured-shelf h2 small{margin-left:6px}.mobile-app .bottom-nav a{font-size:8px}.mobile-app .consultation-row small{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.featured-cover{transition:none}}

@@ -1,0 +1,9 @@
+.shelf-scroll{touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;overscroll-behavior-x:contain;scroll-behavior:auto}
+.shelf-scroll .standing-books{transform:translate3d(var(--shelf-drift,0px),0,0)}
+.shelf-scroll.is-flowing .standing-books{will-change:transform}.shelf-scroll.is-flowing .book-spine{transform:rotate(var(--shelf-lean,0deg));transition:none}.shelf-scroll.is-dragging,.shelf-scroll.is-dragging button{cursor:grabbing}
+.shelf-scroll.is-dragging .shelf-bookmark{opacity:0;pointer-events:none}
+.shelf-motion-controls{display:flex;gap:4px;margin-left:8px;flex-shrink:0}.shelf-motion-controls button{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#dfd3bd;color:#7a735e;border:1px solid #d2c4a8}.shelf-motion-controls button:hover{background:#d2c4aa}.shelf-motion-controls .icon{width:13px;height:13px}.shelf-motion-controls button:first-child .icon{transform:rotate(180deg)}
+.shelf-count{white-space:nowrap}.shelf-heading{gap:10px}.shelf-heading h3{min-width:0}
+.mobile-app .shelf-motion-controls{margin-left:auto;gap:3px}.mobile-app .shelf-motion-controls button{width:25px;height:25px}.mobile-app .shelf-motion-controls .icon{width:12px;height:12px}.mobile-app .shelf-heading{gap:7px}.mobile-app .shelf-heading h3{font-size:9px}
+@media(max-width:360px){.mobile-app .shelf-heading h3{font-size:8px}.mobile-app .shelf-motion-controls button{width:23px;height:23px}.mobile-app .shelf-motion-controls{gap:2px}.mobile-app .shelf-range{padding-right:6px;font-size:8px}}
+@media(prefers-reduced-motion:reduce){.shelf-scroll .standing-books{transform:none}.shelf-scroll.is-flowing .book-spine{transform:none}}

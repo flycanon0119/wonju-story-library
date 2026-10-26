@@ -1,0 +1,74 @@
+.version-switch{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--line);border-radius:6px;font-size:10px;white-space:nowrap}
+.version-switch a,.version-switch>span{padding:4px 8px;border-radius:3px}
+.version-switch>span{background:var(--sage);color:var(--green);font-weight:600}
+.mobile-app .topbar{position:sticky;top:0;background:#f9f8f3f5;backdrop-filter:blur(12px);z-index:9;border-bottom:1px solid #e2e7d9;padding:0 18px;height:70px}
+.mobile-app .page{padding:22px 16px 110px}
+.mobile-app .top-actions{gap:7px}
+.mobile-app .mobile-brand .brand{font-size:17px;gap:8px}
+.mobile-app .mobile-brand .brand small{font-size:7px;letter-spacing:1.5px;margin-top:-3px}
+.mobile-app .demo-badge{font-size:0;padding:4px 6px}
+.mobile-app .demo-badge:after{content:'체험용';font-size:9px}
+.mobile-app .version-switch{border:0;padding:0;font-size:10px}
+.mobile-app .version-switch>span{display:none}
+.mobile-app .version-switch a{padding:5px 6px;border:1px solid #d5dccd}
+.mobile-app .top-actions>.icon-btn{width:30px;height:30px}
+.mobile-app .top-actions>.icon-btn .icon{width:17px;height:17px}
+.mobile-greeting{padding:0 4px 19px}
+.mobile-greeting .eyebrow{font-size:9px;letter-spacing:1.4px;color:#77906d}
+.mobile-greeting h1{font:600 28px/1.55 var(--serif);letter-spacing:-1.3px;margin:9px 0 9px}
+.mobile-greeting p{font-size:11px;color:var(--muted);line-height:1.9}
+.mobile-greeting-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:17px}
+.mobile-greeting-footer>span{font-size:10px;color:#7c8974;display:inline-flex;gap:5px;align-items:center}
+.mobile-greeting-footer>span>.icon{width:13px;height:13px}
+.mobile-greeting-footer button{font-size:10px;min-height:36px;padding:7px 10px;background:var(--sage);border-radius:7px}
+.mobile-catalog-tools{position:sticky;top:70px;z-index:7;background:#f9f8f3f5;backdrop-filter:blur(12px);padding:10px 0 0;margin-bottom:9px;border-top:1px solid var(--line)}
+.mobile-catalog-tools .search-row{margin:0 0 11px}
+.mobile-catalog-tools .search{min-height:48px;padding:10px 12px;background:var(--white);box-shadow:0 3px 10px #30452a05}
+.mobile-catalog-tools .search input{font-size:16px}
+.mobile-catalog-tools .search input::placeholder{font-size:11px}
+.mobile-field-scroll{display:flex;gap:7px;overflow:auto;scrollbar-width:none;margin-right:-16px;padding:0 16px 12px 0}
+.mobile-field-scroll button{min-height:38px;white-space:nowrap;border:1px solid var(--line);border-radius:7px;background:var(--white);font-size:10px;padding:7px 11px;display:flex;align-items:center;gap:6px}
+.mobile-field-scroll button.active{background:var(--green);color:white;border-color:var(--green)}
+.mobile-field-scroll button b{font:10px Georgia,serif;opacity:.75}
+.mobile-field-scroll .all-fields{border-style:dashed;background:#edf0e6;color:var(--green)}
+.mobile-field-scroll .icon{width:14px;height:14px}
+.mobile-app .result-meta{padding:2px 4px 0;font-size:10px;margin:8px 0 12px}
+.mobile-app .library-bookcase{border-radius:8px}
+.mobile-app .shelf-heading{height:36px}
+.mobile-app .shelf-heading h3{font-size:10px}
+.mobile-app .shelf-interior{padding-left:18px;padding-right:18px;min-height:255px}
+.mobile-app .shelved-book{flex-basis:clamp(86px,26vw,112px)}
+.mobile-app .book-spine{width:clamp(86px,26vw,112px)}
+.mobile-app .shelf-bookmark{height:29px;width:29px;top:-20px}
+.mobile-app .recommend-strip{font-size:10px;gap:7px;padding:11px}
+.mobile-app .recommend-strip span{font-size:9px}
+.mobile-app .closing-note{font-size:10px;padding-left:4px;padding-right:4px}
+.mobile-app .bottom-nav{height:calc(74px + env(safe-area-inset-bottom));padding-top:6px;padding-bottom:calc(7px + env(safe-area-inset-bottom));box-shadow:0 -5px 22px #19352b08}
+.mobile-app .bottom-nav a{min-width:70px;gap:3px;padding:6px 8px;font-size:10px;border-radius:9px}
+.mobile-app .bottom-nav a.active{background:var(--sage)}
+.mobile-app .bottom-nav a.active:before{display:none}
+.mobile-app .bottom-nav svg{width:22px;height:22px}
+.mobile-app .btn{min-height:44px;font-size:12px}
+.mobile-app .field input,.mobile-app .field textarea,.mobile-app .field select{font-size:16px;min-height:46px}
+.mobile-app .field input::placeholder,.mobile-app .field textarea::placeholder{font-size:12px}
+.mobile-app .field textarea{line-height:1.8}
+.mobile-app .radio-option{min-height:60px;padding:14px 12px}
+.mobile-app .radio-option input,.mobile-app .checkline input{height:18px;width:18px;margin-top:3px}
+.mobile-app .checkline{gap:11px;line-height:1.9}
+.mobile-app .page-heading h1{font-size:28px}
+.mobile-app .panel{padding:20px 17px}
+.mobile-app .segmented button{min-height:44px}
+.mobile-app dialog{max-height:92dvh;width:calc(100% - 24px);border-radius:15px}
+.mobile-app dialog:has(.classification-table){position:fixed;inset:auto 0 0;margin:0;width:100%;max-width:100%!important;max-height:86dvh;border-radius:20px 20px 0 0}
+.mobile-app dialog:has(.classification-table) .modal-head:before{content:'';position:absolute;top:7px;left:calc(50% - 18px);width:36px;height:4px;border-radius:4px;background:#d1d8c7}
+.mobile-app dialog:has(.classification-table) .modal-head{padding-top:22px}
+.mobile-app .classification-table button{min-height:64px}
+.mobile-app .classification-table small{font-size:11px}
+.mobile-app dialog:has(.reader-intro){position:fixed;inset:0;margin:0;width:100%;max-width:100%!important;max-height:100dvh;height:100dvh;border:0;border-radius:0}
+.mobile-app .reader-actions{padding-bottom:calc(12px + env(safe-area-inset-bottom));bottom:-23px}
+.mobile-app .reader-actions .btn{font-size:11px;min-height:48px}
+.mobile-app .chapter p{font-size:14px;line-height:2}
+.mobile-app .book-boundary p{font-size:12px}
+.mobile-app .reader-person{font-size:11px}
+.mobile-app #toast{bottom:calc(90px + env(safe-area-inset-bottom))}
+@media(max-width:360px){.mobile-app .mobile-brand .brand{font-size:15px;gap:5px}.mobile-app .mobile-brand .brand small{font-size:6px}.mobile-app .topbar{padding-left:12px;padding-right:12px}.mobile-app .top-actions{gap:4px}.mobile-app .top-actions>.icon-btn{width:26px;height:26px}.mobile-app .demo-badge{padding:3px 4px}.mobile-app .version-switch a{padding:4px}.mobile-greeting h1{font-size:25px}.mobile-app .shelf-interior{padding-left:13px;padding-right:13px}.mobile-app .bottom-nav a{min-width:62px;padding-left:5px;padding-right:5px}}

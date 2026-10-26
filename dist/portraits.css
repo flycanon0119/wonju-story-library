@@ -1,0 +1,13 @@
+.reader-portrait{margin:0;min-width:0;width:100%;align-self:start}
+.reader-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:10px;background:#e9e8dc;border:1px solid #d9dfcf}
+.reader-portrait figcaption{margin-top:7px;padding:5px 3px;border-radius:5px;background:#e9eee4;color:#64735e;text-align:center;font-size:10px;line-height:1.6;word-break:keep-all}
+.reader-with-portrait{align-items:start;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.reader-with-portrait .eyebrow{font-size:9px;letter-spacing:1px;margin:4px 0 10px}
+.reader-with-portrait .reader-title{font-family:var(--serif);font-size:25px;line-height:1.7;margin:0;letter-spacing:-.8px}
+.reader-with-portrait .reader-person{margin-top:15px}
+.reader-with-portrait .reader-person strong{font-size:17px;color:var(--ink);font-weight:600}
+.reader-with-portrait .draft-tag{display:inline-block;margin-top:7px}
+.portrait-placeholder{width:100%;aspect-ratio:4/5;background:#edf0e7;border:1px dashed #becbb5;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:#89977c;font-size:11px}
+.portrait-placeholder>.icon{width:45px;height:45px;stroke-width:1}
+@media(max-width:600px){.reader-with-portrait{grid-template-columns:125px minmax(0,1fr);gap:17px;padding-bottom:22px}.reader-with-portrait .reader-title{font-size:20px;line-height:1.65;letter-spacing:-.7px}.reader-with-portrait .eyebrow{font-size:8px;letter-spacing:.5px;gap:5px;margin-top:1px;margin-bottom:9px}.reader-with-portrait .eyebrow:before{width:10px}.reader-with-portrait .reader-person{font-size:11px;line-height:1.9;margin-top:12px}.reader-with-portrait .reader-person strong{font-size:15px}.reader-portrait figcaption{font-size:9px;padding:5px 2px}.reader-with-portrait .reader-tags{margin-top:10px;gap:4px}.reader-with-portrait .reader-tags span{font-size:9px}.portrait-placeholder{font-size:9px;gap:9px}}
+@media(max-width:360px){.reader-with-portrait{grid-template-columns:105px minmax(0,1fr);gap:13px}.reader-with-portrait .reader-title{font-size:18px}.reader-with-portrait .reader-person{font-size:10px}.reader-portrait figcaption{font-size:8px}.reader-with-portrait .reader-person strong{font-size:14px}}

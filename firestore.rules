@@ -1,0 +1,80 @@
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+  function signed() { return request.auth != null; }
+  function verified() { return signed() && request.auth.token.email_verified == true; }
+  function admin() { return signed() && exists(/databases/$(database)/documents/admins/$(request.auth.uid)); }
+  function owner(uid) { return signed() && request.auth.uid == uid; }
+  function text(v,n) { return v is string && v.size() > 0 && v.size() <= n; }
+  function clean(v,n) { return text(v,n) && !v.matches('(?i).*(https?://|www[.]|[a-z0-9._%+-]+@[a-z0-9.-]+[.][a-z]{2,}|01[016789][ .-]?[0-9]{3,4}[ .-]?[0-9]{4}|instagram|open[.]kakao|discord[.]gg|카톡[ ]*(아이디|계정|:)|인스타[ ]*(아이디|계정|:)).*'); }
+  function book(uid) { return get(/databases/$(database)/documents/books/$(uid)); }
+  function approved(uid) { return exists(/databases/$(database)/documents/books/$(uid)) && book(uid).data.approved == true; }
+  function roomParticipant(uid) { let access = /databases/$(database)/documents/roomAccess/$(uid)/members/$(request.auth.uid); return verified() && (owner(uid) || (exists(access) && get(/databases/$(database)/documents/meetings/$(get(access).data.meetingId)).data.status == 'confirmed')); }
+  match /admins/{uid} { allow get: if owner(uid); allow list,write: if false; }
+  match /users/{uid} {
+   allow get: if owner(uid) || admin();
+   allow list: if admin();
+   allow create: if owner(uid) && request.resource.data.keys().hasOnly(['nickname','role','ageConfirmed','consentVersion','createdAt']) && clean(request.resource.data.nickname,16) && request.resource.data.role == 'mentee' && request.resource.data.ageConfirmed == true && request.resource.data.createdAt == request.time;
+   allow update: if owner(uid) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['nickname']) && clean(request.resource.data.nickname,16);
+   allow delete: if owner(uid);
+   match /private/{id} {
+    allow read: if owner(uid);
+    allow create,update: if owner(uid) && request.resource.data.keys().hasOnly(['interests','saved','blocked','hiddenQuestions','savedQuestions','discoveryConcern','draft','onboarded']) && request.resource.data.interests is list && request.resource.data.saved is list && request.resource.data.draft is map;
+    allow delete: if owner(uid);
+   }
+   match /notes/{id} { allow read: if owner(uid); allow write: if owner(uid) && request.resource.data.keys().hasOnly(['rating','summary','nextGoal','publicNote','publicConsent']) && request.resource.data.rating in [1,2,3,4,5] && text(request.resource.data.summary,1200) && text(request.resource.data.nextGoal,400); }
+  }
+  match /mentorApplications/{uid} {
+   allow get: if owner(uid) || admin(); allow list: if admin();
+   allow create,update: if verified() && owner(uid) && request.resource.data.keys().hasOnly(['uid','profile','status','updatedAt']) && request.resource.data.uid == uid && request.resource.data.status == 'pending' && request.resource.data.profile is map && clean(request.resource.data.profile.name,30) && clean(request.resource.data.profile.title,48) && request.resource.data.updatedAt == request.time;
+   allow update: if admin();
+  }
+  match /books/{uid} {
+   allow read: if resource.data.approved == true || admin();
+   allow create: if admin();
+   allow update: if admin() || (verified() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['busyFrom','busyUntil','busyMeetingId']) && (owner(uid) || (resource.data.busyMeetingId != '' && getAfter(/databases/$(database)/documents/meetings/$(resource.data.busyMeetingId)).data.menteeUid == request.auth.uid && getAfter(/databases/$(database)/documents/meetings/$(resource.data.busyMeetingId)).data.status == 'cancelled' && request.resource.data.busyFrom == '' && request.resource.data.busyUntil == '')));
+  }
+  match /questions/{id} {
+   allow read: if resource.data.status == 'public' || admin();
+   allow create: if verified() && request.resource.data.keys().hasOnly(['uid','author','title','body','concern','field','status','answerCount','lastAnswerId','created','createdAt']) && owner(request.resource.data.uid) && request.resource.data.author == get(/databases/$(database)/documents/users/$(request.auth.uid)).data.nickname && clean(request.resource.data.title,80) && clean(request.resource.data.body,1500) && text(request.resource.data.concern,40) && request.resource.data.status == 'public' && request.resource.data.answerCount == 0 && request.resource.data.lastAnswerId == '' && request.resource.data.createdAt == request.time;
+   allow update: if admin() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status']);
+   allow update: if verified() && resource.data.status == 'public' && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['answerCount','lastAnswerId']) && request.resource.data.answerCount == resource.data.answerCount + 1 && getAfter(/databases/$(database)/documents/questions/$(id)/answers/$(request.resource.data.lastAnswerId)).data.uid == request.auth.uid && getAfter(/databases/$(database)/documents/questions/$(id)/answers/$(request.resource.data.lastAnswerId)).data.createdAt == request.time;
+   match /answers/{answerId} {
+    allow read: if (resource.data.status == 'public' && get(/databases/$(database)/documents/questions/$(id)).data.status == 'public') || admin();
+    allow create: if verified() && owner(request.resource.data.uid) && request.resource.data.keys().hasOnly(['uid','author','body','bookId','status','created','createdAt']) && request.resource.data.status == 'public' && clean(request.resource.data.body,1200) && ((request.resource.data.bookId == '' && request.resource.data.author == get(/databases/$(database)/documents/users/$(request.auth.uid)).data.nickname) || (request.resource.data.bookId == request.auth.uid && approved(request.auth.uid) && request.resource.data.author == book(request.auth.uid).data.name)) && request.resource.data.createdAt == request.time && get(/databases/$(database)/documents/questions/$(id)).data.status == 'public';
+    allow update: if admin() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status']);
+   }
+  }
+  match /threads/{id} {
+   allow get: if verified() && (resource == null || request.auth.uid in resource.data.participants);
+   allow list: if verified() && request.auth.uid in resource.data.participants;
+   allow create: if verified() && request.resource.data.keys().hasOnly(['participants','mentorUid','menteeUid','created','createdAt']) && request.resource.data.participants == [request.auth.uid,request.resource.data.mentorUid] && request.resource.data.menteeUid == request.auth.uid && request.resource.data.mentorUid != request.auth.uid && approved(request.resource.data.mentorUid) && request.resource.data.createdAt == request.time;
+  }
+  match /threads/{thread}/messages/{message} {
+   allow read: if verified() && request.auth.uid in get(/databases/$(database)/documents/threads/$(thread)).data.participants;
+   allow create: if verified() && request.auth.uid in get(/databases/$(database)/documents/threads/$(thread)).data.participants && request.resource.data.keys().hasOnly(['uid','body','created','createdAt']) && owner(request.resource.data.uid) && clean(request.resource.data.body,1500) && request.resource.data.createdAt == request.time;
+  }
+  match /meetings/{id} {
+   allow read: if (verified() && request.auth.uid in resource.data.participants) || admin();
+   allow create: if verified() && request.resource.data.keys().hasOnly(['participants','menteeUid','mentorUid','bookId','slotId','slotLabel','meetingDate','topic','question','status','createdAt']) && request.resource.data.participants == [request.auth.uid,request.resource.data.mentorUid] && request.resource.data.menteeUid == request.auth.uid && request.resource.data.mentorUid != request.auth.uid && request.resource.data.bookId == request.resource.data.mentorUid && approved(request.resource.data.mentorUid) && request.resource.data.status == 'requested' && book(request.resource.data.mentorUid).data.slots[0].id == request.resource.data.slotId && book(request.resource.data.mentorUid).data.slots[0].date == request.resource.data.meetingDate && book(request.resource.data.mentorUid).data.slots[0].label == request.resource.data.slotLabel && book(request.resource.data.mentorUid).data.slots[0].startsAt > request.time.toMillis() && clean(request.resource.data.topic,100) && (request.resource.data.question == '' || clean(request.resource.data.question,500)) && request.resource.data.createdAt == request.time;
+   allow update: if verified() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','updatedAt']) && request.resource.data.updatedAt == request.time && ((owner(resource.data.mentorUid) && ((resource.data.status == 'requested' && request.resource.data.status == 'declined') || (resource.data.status == 'requested' && request.resource.data.status == 'confirmed' && getAfter(/databases/$(database)/documents/books/$(resource.data.mentorUid)).data.busyMeetingId == id && (book(resource.data.mentorUid).data.busyUntil == '' || book(resource.data.mentorUid).data.busyUntil < resource.data.meetingDate || book(resource.data.mentorUid).data.busyFrom > resource.data.meetingDate)) || (resource.data.status == 'confirmed' && request.resource.data.status == 'completed'))) || (request.auth.uid in resource.data.participants && resource.data.status in ['requested','confirmed'] && request.resource.data.status == 'cancelled'));
+  }
+  match /meetingRooms/{uid} { allow read: if roomParticipant(uid) || admin(); allow write: if admin(); }
+  match /roomAccess/{mentor}/members/{uid} { allow read: if owner(uid)||admin(); allow write: if admin() || (owner(mentor) && request.resource.data.keys().hasOnly(['meetingId']) && getAfter(/databases/$(database)/documents/meetings/$(request.resource.data.meetingId)).data.mentorUid == mentor && getAfter(/databases/$(database)/documents/meetings/$(request.resource.data.meetingId)).data.menteeUid == uid && getAfter(/databases/$(database)/documents/meetings/$(request.resource.data.meetingId)).data.status == 'confirmed'); }
+  match /reviews/{id} {
+   allow read: if resource.data.public == true || owner(resource.data.uid) || admin();
+   allow create,update: if verified() && owner(request.resource.data.uid) && request.resource.data.keys().hasOnly(['uid','mentorUid','author','rating','body','public','updatedAt']) && get(/databases/$(database)/documents/meetings/$(id)).data.menteeUid == request.auth.uid && get(/databases/$(database)/documents/meetings/$(id)).data.status == 'completed' && request.resource.data.mentorUid == get(/databases/$(database)/documents/meetings/$(id)).data.mentorUid && request.resource.data.rating in [1,2,3,4,5] && request.resource.data.body.size() <= 300 && request.resource.data.updatedAt == request.time;
+  }
+  match /reports/{id} {
+   allow read: if admin() || owner(resource.data.uid);
+   allow create: if verified() && owner(request.resource.data.uid) && request.resource.data.keys().hasOnly(['uid','kind','target','reason','detail','status','createdAt']) && text(request.resource.data.kind,30) && text(request.resource.data.target,180) && text(request.resource.data.reason,80) && request.resource.data.detail.size() <= 600 && request.resource.data.status == 'open' && request.resource.data.createdAt == request.time;
+   allow update: if admin();
+  }
+  match /support/{id} {
+   allow read: if admin() || owner(resource.data.uid);
+   allow create: if verified() && owner(request.resource.data.uid) && request.resource.data.keys().hasOnly(['uid','topic','body','status','reply','createdAt']) && text(request.resource.data.topic,50) && clean(request.resource.data.body,1000) && request.resource.data.status == 'open' && request.resource.data.reply == '' && request.resource.data.createdAt == request.time;
+   allow update: if admin() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['reply','status']) && clean(request.resource.data.reply,1000);
+  }
+  match /{document=**} { allow read,write: if false; }
+ }
+}

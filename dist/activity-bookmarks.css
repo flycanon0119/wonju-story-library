@@ -1,0 +1,37 @@
+.activity-bookmark-shelf{margin:32px 0 42px;padding-bottom:32px;border-bottom:1px solid var(--line,#d9dfd0)}
+.activity-section-intro{color:var(--muted,#647466);font-size:13px;margin:8px 0 20px;line-height:1.9}
+.activity-private-label{display:inline-flex;align-items:center;gap:5px;color:#55705e;font-size:11px;white-space:nowrap}
+.activity-private-label .icon{width:15px;height:15px}
+.activity-bookmark-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:18px 0}
+.activity-bookmark{position:relative;padding:65px 25px 25px;background:#fffbee;border:1px solid #ded9c4;border-radius:3px 14px 14px 3px;box-shadow:4px 5px 0 #e9e3d055;color:#294e42;min-width:0;overflow-wrap:anywhere}
+.activity-ribbon{position:absolute;top:-1px;left:24px;width:31px;height:53px;background:#315c4b;color:#fff8e7;display:flex;justify-content:center;padding-top:11px;clip-path:polygon(0 0,100% 0,100% 100%,50% 81%,0 100%)}
+.activity-ribbon .icon{width:17px;height:17px}
+.activity-paper-meta{font-size:10px;color:#7b8068;letter-spacing:.04em;margin-bottom:10px}
+.activity-bookmark h3{font-size:19px;line-height:1.6;margin:0 0 6px}
+.activity-book-title{font-size:12px;color:#6c7562;line-height:1.8;margin:0 0 24px;padding-bottom:16px;border-bottom:1px solid #e3ddc7}
+.activity-bookmark dl{margin:0}.activity-bookmark dl>div+div{margin-top:22px}
+.activity-bookmark dt{font-size:11px;color:#64775b;margin-bottom:7px;font-weight:600}
+.activity-bookmark dd{font-size:14px;line-height:1.95;margin:0;white-space:pre-wrap}
+.activity-bookmark .text-link{margin-top:22px;min-height:44px}
+.activity-bookmark-full{max-width:540px;margin:4px auto 20px;padding:68px 30px 30px}
+.activity-bookmark-empty{border:1px dashed #cbd3bf;border-radius:12px;background:#f4f5ed;padding:25px;text-align:center}
+.activity-empty-icon{display:inline-flex;color:#54735c;margin-bottom:6px}.activity-empty-icon .icon{width:27px;height:27px}
+.activity-bookmark-empty h3{font-size:17px;line-height:1.7;margin:4px 0 10px}
+.activity-bookmark-empty p{font-size:12px;line-height:1.9;color:#687660}.activity-bookmark-empty .actions{justify-content:center;flex-wrap:wrap}
+.activity-bookmark-jump{display:inline-flex;align-items:center;gap:6px;border:0;border-bottom:1px solid #b6c6af;background:#edf1e3;color:#315b47;padding:7px 10px;margin-top:14px;font:inherit;font-size:12px;border-radius:3px;cursor:pointer;min-height:40px}
+.activity-bookmark-jump .icon{width:16px;height:16px}
+.activity-bookmark-section{scroll-margin-top:20px;border-top:1px solid #dce1d1;padding-top:24px;margin:28px 0}
+.activity-bookmark-section .section-line{gap:10px;align-items:center}.activity-bookmark-section .section-line h3{font-size:18px;line-height:1.6}
+.activity-bookmark-section .activity-bookmark-grid{grid-template-columns:1fr}
+.activity-privacy-note,.activity-example-label{font-size:12px;line-height:1.9;color:#65755e}.activity-example-label{background:#eff2e7;border-radius:6px;padding:10px 12px}
+.activity-editor-paper{position:relative;background:#fffbee;border:1px solid #ded9c4;border-radius:4px 12px 12px 4px;padding:62px 24px 20px;margin-bottom:24px}
+.activity-editor-paper .activity-ribbon{left:24px}.activity-editor-paper h3{font-size:20px;line-height:1.6;margin:0 0 8px}.activity-editor-paper .field{margin-top:20px}
+.activity-editor-paper textarea{background:#fffcf6}.activity-feedback{border-top:1px solid #dce1d1;padding-top:24px}.activity-feedback h3{font-size:18px;margin:0 0 10px}
+.activity-meeting-choices{display:grid;gap:12px}
+.shelf-bookmark,.book-card>.bookmark{border-radius:6px;border:1px solid #a9b79c;background:#fcfbf2;color:#214f43}
+.shelf-bookmark.saved,.book-card>.bookmark.saved{background:#e4eddb;color:#214f43;border-color:#9bb18e}
+[data-action="save"] .icon{fill:none!important}
+.activity-spine-ribbon{position:absolute;z-index:2;top:0;right:10px;width:23px;height:39px;display:flex;justify-content:center;align-items:flex-start;padding-top:7px;background:#f8edca;color:#315c4b;clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%)}
+.activity-spine-ribbon .icon{width:13px;height:13px}
+@media(max-width:820px){.mobile-app .shelf-bookmark{width:32px;height:30px;top:-20px;border-radius:6px}.mobile-app .shelf-bookmark .icon{width:17px;height:17px}}
+@media(max-width:820px){.activity-bookmark-grid{grid-template-columns:1fr;gap:18px}.activity-bookmark-shelf{margin-top:26px}.activity-bookmark{padding:60px 20px 20px}.activity-bookmark-full{padding:64px 22px 25px}.activity-bookmark-section .section-line{align-items:flex-start}.activity-bookmark-section .section-line h3{font-size:16px}.activity-bookmark-empty{padding:22px 16px}.activity-editor-paper{padding:60px 18px 18px}.activity-bookmark-empty .actions{flex-direction:column;align-items:stretch}.activity-bookmark-empty .text-link{justify-content:center;min-height:44px}}

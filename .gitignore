@@ -1,0 +1,14 @@
+.openai/credentials*
+node_modules/
+*.log
+.env
+.env.*
+!.env.example
+dist/firebase-config.js
+*service-account*.json
+*serviceAccount*.json
+*firebase-adminsdk*.json
+*.pem
+*.key
+.firebase/
+firebase-debug.log*
